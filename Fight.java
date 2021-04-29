@@ -61,6 +61,7 @@ public class Fight {
             }
             System.out.println("Your health: " + player.getHealth());
             System.out.println("Enemy health: " + enemy.getHealth());
+            System.out.println("Equipped Item: " + player.getEquippedItem().getName() + " ATK: " + player.getEquippedItem().getAtk_buff());
             System.out.println("Make your move: ");
             System.out.println("1: Fight");
             System.out.println("2: Take Potion");
@@ -68,6 +69,7 @@ public class Fight {
             while (!input.hasNextInt()) {
                 System.out.println("Your health: " + player.getHealth());
                 System.out.println("Enemy health: " + enemy.getHealth());
+                System.out.println("Equipped Item: " + player.getEquippedItem().getName() + " ATK: " + player.getEquippedItem().getAtk_buff());
                 System.out.println("Make your move: ");
                 System.out.println("1: Fight");
                 System.out.println("2: Take Potion");
@@ -121,8 +123,8 @@ public class Fight {
 						System.out.println("You attacked doing: " + equippedItem.getAtk_buff() + " damage.");
 						*/
                     }
-                    System.out.println("Your health: " + player.getHealth());
-                    System.out.println("Enemy health: " + enemy.getHealth());
+                    //System.out.println("Your health: " + player.getHealth());
+                    //System.out.println("Enemy health: " + enemy.getHealth());
 
                 }
             } else if (choice == 2) {
