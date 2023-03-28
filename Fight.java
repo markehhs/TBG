@@ -52,12 +52,13 @@ public class Fight {
                 player.setHealth(player.getMaxHealth());
                 System.out.println("You were awarded: " + enemy.getGold() + " gold and " + enemyXP + " xp.");
                 player.setGold(player.getGold() + enemy.getGold());
-                if (player.getXP() >= 100) {
+                player.setXP(player.getXP() + enemyXP);
+                if (player.getXP() >= 100 * player.getLevel()) {
                     player.setLevel(player.getLevel() + 1);
                     System.out.println("You leveled up to: " + player.getLevel());
-                    player.setXP(0);
                 }
                 battle = false;
+                break;
             }
             System.out.println("Your health: " + player.getHealth());
             System.out.println("Enemy health: " + enemy.getHealth());
@@ -91,10 +92,10 @@ public class Fight {
                     player.setHealth(player.getMaxHealth());
                     System.out.println("You were awarded: " + enemy.getGold() + " gold and " + enemyXP + " xp.");
                     player.setGold(player.getGold() + enemy.getGold());
-                    if (player.getXP() >= 100) {
+                    player.setXP(player.getXP() + enemyXP);
+                    if (player.getXP() >= 100 * player.getLevel()) {
                         player.setLevel(player.getLevel() + 1);
                         System.out.println("You leveled up to: " + player.getLevel());
-                        player.setXP(0);
                     }
                     battle = false;
                 } else {
@@ -174,6 +175,10 @@ public class Fight {
             System.out.println("Swapped...");
         }
 
+    }
+
+    public String winMessage() {
+        return "You won.";
     }
 
 }

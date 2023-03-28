@@ -51,6 +51,11 @@ public class Startup {
         //now use the data below to start the game.
         //first handle the data..load function returns a string 1st line is the play any additional lines are inventory items.
         String[] values = load.load().split("\n");
+        System.out.println("Below is all data in the save.");
+        for (int i = 0; i < values.length; i++) {
+            System.out.println(values[i]);
+        }
+        System.out.println("-----------------------");
         for (int i = 0; i < values.length; i++) {
             //now split this by commas...
             String[] cvalues = values[i].split(",");
@@ -76,21 +81,25 @@ public class Startup {
         Item rustySword = new Mele_Item("Rusty Sword", "Starter item.", 0, 2);
         //String name, int attack, int defense, int health, int stamina, double xp, int level, Item[] inventory, int gold, int maxHealth, int potionCount)
         //string saveString = name + "," + attack + "," + defense + "," + health + "," + stamina + "," + xp + "," + level + "," + gold + "," + maxHealth + "," + potionCount;
-        //System.out.println(playerData.get(0) + " " + playerData.get(1) + " " + playerData.get(2) + " " + playerData.get(3) + " " + playerData.get(4) + " " + playerData.get(5) + " " + playerData.get(6) + " " + playerData.get(7) + " " + playerData.get(8) + " " + playerData.get(10));
-        Player player = new Player(playerData.get(0), Integer.parseInt(playerData.get(1)), Integer.parseInt(playerData.get(2)), Integer.parseInt(playerData.get(3)), Integer.parseInt(playerData.get(4)), Double.parseDouble(playerData.get(5)), Integer.parseInt(playerData.get(6)), Integer.parseInt(playerData.get(7)), Integer.parseInt(playerData.get(8)), Integer.parseInt(playerData.get(10)), inventory);
+        //System.out.println(playerData.size());
+        System.out.println("-------------------------");
+        //System.out.println(playerData.get(0) + " " + playerData.get(1) + " " + playerData.get(2) + " " + playerData.get(3) + " " + playerData.get(4) + " " + playerData.get(5) + " " + playerData.get(6) + " " + playerData.get(7) + " " + playerData.get(8) + " " + playerData.get(9));
+        Player player = new Player(playerData.get(0), Integer.parseInt(playerData.get(1)), Integer.parseInt(playerData.get(2)), Integer.parseInt(playerData.get(3)), Integer.parseInt(playerData.get(4)), Double.parseDouble(playerData.get(5)), Integer.parseInt(playerData.get(6)), Integer.parseInt(playerData.get(7)), Integer.parseInt(playerData.get(8)), Integer.parseInt(playerData.get(9)), inventory);
         //now for items every 6 elements in the arrayList is an item (0-5)
         for (int i = 0; i < itemData.size(); i+=6) {
             //Item item = new Item(itemData.get(i), itemData.get(i + 2), Integer.parseInt(itemData.get(i + 1)), Integer.parseInt(itemData.get(i + 3)), Boolean.parseBoolean(itemData.get(i + 4)));
             //now add the item to the inventory
             Item item = new Item();
-            System.out.println("Name: " + itemData.get(i) + " Description " + itemData.get(i + 2) + " Price " + Integer.parseInt(itemData.get(i + 1)) + " Atk" + Integer.parseInt(itemData.get(i + 3)) + " " + Boolean.parseBoolean(itemData.get(i + 4)));
+            System.out.println("Loading item... " + itemData.get(i));
+            //System.out.println("Name: " + itemData.get(i) + " Description " + itemData.get(i + 1) + " Price " + Integer.parseInt(itemData.get(i + 2)) + " Atk " + Integer.parseInt(itemData.get(i + 3)) + " isConsumeable " + Boolean.parseBoolean(itemData.get(i + 4)));
             item.setName(itemData.get(i));
-            item.setDescription(itemData.get(i+2));
+            item.setDescription(itemData.get(i+1));
             item.setAtk_buff(Integer.parseInt(itemData.get(i + 3)));
-            item.setPrice(Integer.parseInt(itemData.get(i + 1)));
+            item.setPrice(Integer.parseInt(itemData.get(i + 2)));
             item.setIsConsumable(Boolean.parseBoolean(itemData.get(i + 4)));
             player.setInventory(item);
             player.setEquippedItem(item);
+            System.out.println(itemData.get(i) + " loaded...");
         }
         System.out.println("Game succesfully loaded!");
         Game game = new Game(player);

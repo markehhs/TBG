@@ -162,7 +162,7 @@ public class Player {
 
         //now lets handle the inventory by looping through the loop and printing each items detail
         for (int i = 0; i < inventoryCount(); i++) {
-            saveString += "\n" + inventory[i].getName() + "," + inventory[i].getDescription() + inventory[i].getPrice() + "," + inventory[i].getAtk_buff() + "," + inventory[i].getIsConsumable() + "," + inventory[i].getClass();
+            saveString += "\n" + inventory[i].getName() + "," + inventory[i].getDescription() + "," + inventory[i].getPrice() + "," + inventory[i].getAtk_buff() + "," + inventory[i].getIsConsumable() + "," + inventory[i].getClass();
         }
         return saveString;
     }

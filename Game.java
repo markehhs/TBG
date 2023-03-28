@@ -13,13 +13,13 @@ public class Game {
     }
 
     public void choices() {
-        System.out.println("Hello, " + player.getName() + " Gold: " + player.getGold() + "\nwhat would you like to do?");
+        System.out.println("Hello, " + player.getName() + " Level: " + player.getLevel() + " XP: " + player.getXP() + " Gold: " + player.getGold() + "\nwhat would you like to do?");
         System.out.println("1: Fight");
         System.out.println("2: Shop");
         System.out.println("3: Save");
         System.out.println("4: Exit");
         while (!input.hasNextInt()) {
-            System.out.println("Hello, " + player.getName() + " Gold: " + player.getGold() + "\nwhat would you like to do?");
+            System.out.println("Hello, " + player.getName() + " Level: " + player.getLevel() + " XP: " + player.getXP() + " Gold: " + player.getGold() + "\nwhat would you like to do?");
             System.out.println("1: Fight");
             System.out.println("2: Shop");
             System.out.println("3: Save");
